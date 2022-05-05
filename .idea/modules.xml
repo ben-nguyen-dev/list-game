@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/list-game.iml" filepath="$PROJECT_DIR$/.idea/list-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VMO/C12/YOK4/yokogawa-mls-ui/.idea/yokogawa-mls-ui.iml" filepath="$PROJECT_DIR$/../../VMO/C12/YOK4/yokogawa-mls-ui/.idea/yokogawa-mls-ui.iml" />
     </modules>
   </component>
 </project>

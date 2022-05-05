@@ -1,0 +1,17 @@
+@import "../../styles/avariables";
+
+.home {
+  display: grid;
+  gap: $space-primary*2 $space-primary ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0 10%;
+  .game-item {
+
+    object-fit: cover;
+    img {
+      height: 100%;
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+}
