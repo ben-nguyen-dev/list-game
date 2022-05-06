@@ -18,5 +18,8 @@
       background: $new;
       transition: all 0.25s;
     }
+    &.active {
+      background: $new;
+    }
   }
 }

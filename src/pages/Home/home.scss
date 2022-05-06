@@ -6,12 +6,68 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 0 10%;
   .game-item {
-
+    position: relative;
     object-fit: cover;
+    overflow: hidden;
+    &:hover {
+      .layer-btn {
+        visibility: inherit;
+      }
+    }
     img {
       height: 100%;
       border-radius: 10px;
       width: 100%;
+    }
+    .new-item {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 120px;
+      height: 120px;
+      color: $text-primary-light;
+      transform: rotate(45deg);
+      z-index: 2;
+      .new-item-text {
+        background: $new;
+        text-align: center;
+        padding: 5px 0;
+        font-weight: 700;
+      }
+    }
+    .jackpot {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      color: $text-primary-light;
+      font-weight: 700;
+      background: $background-dark-opacity;
+      z-index: 1;
+      padding: 5px 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: center;
+    }
+    .layer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      visibility: hidden;
+      background: $background-dark-opacity;
+      border-radius: 10px;
+      cursor: pointer;
+      .btn {
+        background: $new;
+        padding: $space-primary/2 $space-primary;
+        border-radius: 10px;
+        color: $text-primary-light;
+        font-weight: 600;
+      }
     }
   }
 }

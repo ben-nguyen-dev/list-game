@@ -7,8 +7,10 @@ import {
 } from "react-router-dom";
 import { routes } from "./configs/routes";
 import MainLayout from "./layouts/MainLayout";
+import Home from "./pages/Home/Home";
 
 const App: FC = () => {
+  console.log('App')
   return (
     <div className="App">
       <Router>
@@ -22,6 +24,17 @@ const App: FC = () => {
                 caseSensitive={route.exact}
               />
             ))}
+            {/*<Route*/}
+            {/*  key={'ssss'}*/}
+            {/*  element={<Home/>}*/}
+            {/*  path={"/home"}*/}
+            {/*  caseSensitive*/}
+            {/*/>*/}
+            {/*<Route*/}
+            {/*    key={'ssss'}*/}
+            {/*    element={<Home/>}*/}
+            {/*    path={"/home"}*/}
+            {/*/>*/}
           </Routes>
         </MainLayout>
       </Router>

@@ -4,3 +4,8 @@ export interface GameType {
   image: string;
   id: string;
 }
+
+export interface JackpotType {
+  game: string;
+  amount: number
+}
