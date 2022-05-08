@@ -5,7 +5,8 @@ import {
   getListJackpotService,
 } from "../../../services/HomeService";
 import { useSearchParams } from "react-router-dom";
-import _ from "lodash"
+import _ from "lodash";
+import { FullScreenLoading } from "../../../components/Loading";
 
 const useHome = () => {
   const [searchParams] = useSearchParams();
@@ -22,17 +23,20 @@ const useHome = () => {
     getJackpot();
     let interval = setInterval(() => {
       getJackpot();
-    }, 5000);
+    }, 3000);
     return () => {
       clearInterval(interval);
     };
   }, []);
 
   const getGames = async () => {
+    FullScreenLoading.show();
     try {
       const res = await getListGameService();
+      FullScreenLoading.hide();
       !!res && res.data && setListGame(res.data);
     } catch (error: any) {
+      FullScreenLoading.hide();
       console.log(error);
     }
   };
@@ -40,12 +44,12 @@ const useHome = () => {
   const getJackpot = async () => {
     try {
       const res = await getListJackpotService();
-      if(!!res && res.data) {
-        const data = {}
+      if (!!res && res.data) {
+        const data = {};
         _.forEach(res.data, (jackpot: JackpotType) => {
-          _.set(data, jackpot.game, jackpot.amount)
-        })
-        setJackpot(data)
+          _.set(data, jackpot.game, jackpot.amount);
+        });
+        setJackpot(data);
       }
     } catch (error: any) {
       console.log(error);

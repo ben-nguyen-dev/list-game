@@ -42,5 +42,5 @@ export const MENU_ITEMS: MenuType[] = [
 ];
 
 export const APP_STORAGE = {
-  ACCESS_TOKEN: 'ACCESS_TOKEN',
+  ACCESS_TOKEN: "ACCESS_TOKEN",
 };

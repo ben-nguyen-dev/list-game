@@ -1,7 +1,7 @@
-import React, {FC, useMemo} from "react";
+import React, { FC, useMemo } from "react";
 import { MENU_ITEMS } from "../ultis/constants";
 import { MenuType } from "../interfaces/commons";
-import {useNavigate, useSearchParams} from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface HeaderProps {}
 
@@ -15,7 +15,6 @@ const Header: FC<HeaderProps> = ({}) => {
 
   const handleItemMenu = (path: string) => {
     if (!path) return;
-    console.log({ path });
     navigate(`/home?type=${path}`);
   };
 
@@ -24,11 +23,34 @@ const Header: FC<HeaderProps> = ({}) => {
       <div className="menu">
         {MENU_ITEMS.map((item: MenuType, index) => (
           <div
-            className={`menu-item ${item.path === type ? 'active' : ''}`}
+            className={`menu-item ${
+              item.path === type ||
+              item?.children?.some((child) => child.path == type)
+                ? "active"
+                : ""
+            }`}
             key={index}
-            onClick={() => handleItemMenu(item.path)}
           >
-            {item.label}
+            <div
+              className={`item`}
+              key={index}
+              onClick={() => handleItemMenu(item.path)}
+            >
+              {item.label}
+            </div>
+            {item.children && (
+              <div className="menu-children">
+                {item.children.map((child, index) => (
+                  <div
+                    className={`item ${child.path === type ? "active" : ""}`}
+                    onClick={() => handleItemMenu(child.path)}
+                    key={index}
+                  >
+                    {child.label}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
